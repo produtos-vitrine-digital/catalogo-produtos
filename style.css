@@ -31,12 +31,12 @@ h1, h2, h3, p {
 }
 
 h1 {
-  font-size: 3.5rem; /* aumenta o tamanho */
+  font-size: clamp(2rem,5vw,3.5rem); /* aumenta o tamanho */
   font-family: 'Playfair Display', serif; /* fonte elegante */
   font-weight: 700;
   color: var(--destaque); /* usa o dourado da paleta */
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
@@ -44,27 +44,28 @@ h1 {
 /* === CABEÇALHO === */
 header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 2rem 1rem;
   background: rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 1rem;
 }
 
-/* === NAVEGAÇÃO === */
+/* === NAVEGAÇÃO ADAPTÁVEL=== */
 nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* espaçamento entre categorias */
+  gap: 1rem; /* espaçamento entre categorias */
 }
 
 nav a {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
   color: var(--texto);
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 16px;
   border-radius: 6px;
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -77,7 +78,8 @@ nav a.ativo {
 
 /* === BOTÃO DE TEMA === */
 #toggle-theme {
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   border: 2px solid var(--destaque);
   background: transparent;
   color: var(--destaque);
@@ -100,7 +102,7 @@ nav a.ativo {
 
 /* === CAMPO DE BUSCA RESPONSIVO === */
 #busca {
-  padding: 10px 16px;
+  padding: 0.5rem 1rem;
   border: 2px solid var(--destaque);
   border-radius: 8px;
   font-weight: bold;
@@ -121,32 +123,29 @@ nav a.ativo {
   border-color: var(--texto);
 }
 
-/* === CATÁLOGO === */
+/* === CATÁLOGO DE PRODUTOS === */
 .catalogo-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  padding: 40px;
+  gap: 2rem;
+  padding: 2rem;
 }
 
-/* === CARD DE PRODUTO — ESTILOS COMUNS === */
+/* === CARD DE PRODUTO COM LARGURA ADAPTÁVEL === */
 .card {
+  flex: 1 1 220px; /* flexível com largura mínima de 220px */
   border-radius: 10px;
-  padding: 16px;
-  width: 220px;
+  padding: 1rem;
+  max-width: 300px;
   transition: transform 0.3s ease;
   font-size: 0.95rem; /* tamanho de fonte um pouco menor */
-}
-
-.card:hover {
-  transform: scale(1.05);
 }
 
 .card img {
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 /* === CARD NO MODO CLARO === */
@@ -184,7 +183,8 @@ body.dark-mode .card {
 /* === RODAPÉ === */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 1.5rem;
   background: rgba(0,0,0,0.6);
   color: var(--texto);
+  font-size: 0.9rem;
 }
