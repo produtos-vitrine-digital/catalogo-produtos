@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Produto</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+
+  <!-- Aplica o tema salvo ANTES de renderizar o body -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Detalhes do Produto</h1>
+    <button id="toggle-theme">Alternar Tema</button>
+  </header>
+
+  <!-- Área principal onde os dados do produto serão exibidos -->
+  <main>
+    <section id="detalhes-produto" class="catalogo-container"></section>
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="botao-contato">
+          <i class="fas fa-arrow-left"></i> Voltar ao Catálogo
+        </a>
+      </div>
+    <selection>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 - Desenvolvido por Valdeson M. Lima</p>
+  </footer>
+
+</body>
+
+<!-- Scripts -->
+<script src="detalhes.js"></script>
+<script src="tema.js"></script>
+<script>
+  const toggleThemeButton = document.getElementById('toggle-theme');
+  const bodyElement = document.documentElement;
+
+  toggleThemeButton.addEventListener('click', () => {
+    bodyElement.classList.toggle('dark-mode');
+    const temaAtual = bodyElement.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', temaAtual);
+  });
+</script>
+</html>
