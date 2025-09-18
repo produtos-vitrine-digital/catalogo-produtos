@@ -7,6 +7,7 @@
   --borda-card: rgba(255,255,255,0.2);
 }
 
+
 /* === FONTES === */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap');
 
@@ -18,6 +19,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
 }
+
 
 /* === MODO ESCURO === */
 body.dark-mode {
@@ -54,6 +56,7 @@ header {
   align-items: center;
   gap: 1rem;
 }
+
 
 /* === RODAPÉ === */
 footer {
@@ -110,6 +113,7 @@ nav a.ativo {
   transform: translateY(-2px);
 }
 
+
 /* === CAMPO DE BUSCA === */
 #busca {
   padding: 0.5rem 1rem;
@@ -143,6 +147,7 @@ nav a.ativo {
   padding: 2rem;
 }
 
+
 /* === CARD DE PRODUTO === */
 .card {
   flex: 1 1 220px;
@@ -155,8 +160,8 @@ nav a.ativo {
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  animation: brilho 1s ease-in-out;
+  box-shadow: 0 0 20px var(--destaque);
+  animation: brilho-card 1s ease-in-out;
 }
 
 .card img {
@@ -171,6 +176,7 @@ nav a.ativo {
   filter: brightness(1.2);
 }
 
+
 /* === CARD NO MODO CLARO === */
 body:not(.dark-mode) .card {
   background-color: #f9f9f9;
@@ -178,6 +184,7 @@ body:not(.dark-mode) .card {
   border: 1px solid rgba(0,0,0,0.1);
   backdrop-filter: none;
 }
+
 
 /* === CARD NO MODO ESCURO === */
 body.dark-mode .card {
@@ -214,10 +221,19 @@ body.dark-mode .card {
   100% { box-shadow: 0 0 0px var(--destaque); }
 }
 
+
 /* === ACESSIBILIDADE === */
 :focus {
   outline: 2px solid var(--destaque);
   outline-offset: 2px;
+}
+
+
+/* === ANIMAÇÕES === */
+@keyframes brilho-card {
+  0%   { box-shadow: 0 0 0px var(--destaque); }
+  50%  { box-shadow: 0 0 20px var(--destaque); }
+  100% { box-shadow: 0 0 0px var(--destaque); }
 }
 
 
