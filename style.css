@@ -237,6 +237,20 @@ body.dark-mode .card {
 }
 
 
+/* === DIFERENTES TAMANHOS DE TELA === */
+@media (max-width: 768px) {
+  .produto-detalhes {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+/* === FOCO PARA ACESSIBILIDADE === */
 :focus {
   outline: 2px solid var(--destaque);
   outline-offset: 2px;
