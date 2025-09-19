@@ -12,15 +12,16 @@ fetch('produtos.json')
     // Monta o HTML do produto
     const container = document.getElementById('detalhes-produto');
     container.innerHTML = `
-      <div class="card">
+      <div class="detalhes-card">
         <img src="${produto.imagem}" alt="${produto.nome}">
         <h2>${produto.nome}</h2>
         <p>${produto.descricao}</p>
         <p><strong>R$ ${produto.preco}</strong></p>
         <a href="https://wa.me/5566999348834?text=Olá! Tenho interesse no ${produto.nome}" class="botao-contato">
-          <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
         </a>
       </div>
     `;
-  });
+  
+});
 let todosProdutos = [];

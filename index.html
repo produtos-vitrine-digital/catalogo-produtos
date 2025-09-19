@@ -4,7 +4,14 @@
 <!-- Início do documento HTML com idioma português do Brasil -->
 <html lang="pt-br">
 
+
 <head>
+  <!-- Tema escuro automaticamente -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+    }
+  </script>
   <!-- Define o conjunto de caracteres como UTF-8 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,5 +64,19 @@
   <!-- Importa o script JavaScript com a lógica da página -->
   <script src="script.js"></script>
 </body>
+
+
+<!-- Script para alternar o tema claro/escuro e salvar a preferência no localStorage -->
+<script>
+  const toggleThemeButton = document.getElementById('toggle-theme');
+  const bodyElement = document.documentElement;
+
+  toggleThemeButton.addEventListener('click', () => {
+    bodyElement.classList.toggle('dark-mode');
+    const temaAtual = bodyElement.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', temaAtual);
+  });
+</script>
+
 
 </html>

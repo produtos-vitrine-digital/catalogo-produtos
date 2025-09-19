@@ -79,11 +79,11 @@ document.querySelectorAll('nav a').forEach(link => {
     const categoria = link.getAttribute('data-categoria');
     exibirProdutos(categoria);
 
-    // Atualiza o estilo do link ativo
     document.querySelectorAll('nav a').forEach(l => l.classList.remove('ativo'));
     link.classList.add('ativo');
   });
 });
+
 
 // === Filtro por nome ao digitar na busca ===
 document.getElementById('busca').addEventListener('input', (e) => {

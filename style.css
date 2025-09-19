@@ -5,6 +5,8 @@
   --destaque: #d4af37;
   --card: rgba(255,255,255,0.05);
   --borda-card: rgba(255,255,255,0.2);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
@@ -254,4 +256,29 @@ body {
 :focus {
   outline: 2px solid var(--destaque);
   outline-offset: 2px;
+}
+
+
+/* === DETALHES DO PRODUTO === */
+.detalhes-card {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.detalhes-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .detalhes-card {
+    padding: 1rem;
+  }
 }
