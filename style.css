@@ -1,0 +1,257 @@
+/* === PALETA DE CORES === */
+:root {
+  --fundo: #0f0f0f;
+  --texto: #f5f5f5;
+  --destaque: #d4af37;
+  --card: rgba(255,255,255,0.05);
+  --borda-card: rgba(255,255,255,0.2);
+}
+
+
+/* === FONTES === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap');
+
+
+/* === MODO CLARO === */
+body {
+  background-color: #ffffff;
+  color: #222222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+
+/* === MODO ESCURO === */
+body.dark-mode {
+  background: var(--fundo) url('img/fundo-luxo.jpg') center/cover fixed no-repeat;
+  color: var(--texto);
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* === TÍTULOS E TEXTOS === */
+h1, h2, h3, p {
+  color: inherit;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--destaque);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+
+/* === CABEÇALHO === */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+/* === RODAPÉ === */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  color: var(--texto);
+  font-size: 0.9rem;
+}
+
+
+/* === NAVEGAÇÃO === */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav a {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover,
+nav a.ativo {
+  transform: scale(1.1);
+  background: var(--destaque);
+  color: var(--fundo);
+}
+
+
+/* === BOTÃO DE TEMA === */
+#toggle-theme {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--destaque);
+  background: transparent;
+  color: var(--destaque);
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+#toggle-theme:hover {
+  background: var(--destaque);
+  color: var(--fundo);
+  transform: translateY(-2px);
+}
+
+
+/* === CAMPO DE BUSCA === */
+#busca {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--destaque);
+  border-radius: 8px;
+  font-weight: bold;
+  color: var(--destaque);
+  background: transparent;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#busca::placeholder {
+  color: #aaa;
+}
+
+#busca:focus {
+  outline: none;
+  border-color: var(--texto);
+}
+
+
+/* === CATÁLOGO === */
+.catalogo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+
+/* === CARD DE PRODUTO === */
+.card {
+  flex: 1 1 220px;
+  max-width: 300px;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--destaque);
+  animation: brilho-card 1s ease-in-out;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+
+/* === CARD NO MODO CLARO === */
+body:not(.dark-mode) .card {
+  background-color: #f9f9f9;
+  color: #222222;
+  border: 1px solid rgba(0,0,0,0.1);
+  backdrop-filter: none;
+}
+
+
+/* === CARD NO MODO ESCURO === */
+body.dark-mode .card {
+  background: var(--card);
+  color: var(--texto);
+  border: 1px solid var(--borda-card);
+  backdrop-filter: blur(10px);
+}
+
+
+/* === BOTÃO DE CONTATO === */
+.botao-contato {
+  display: inline-block;
+  border: 2px solid var(--destaque);
+  color: var(--destaque);
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botao-contato:hover {
+  background: var(--destaque);
+  color: var(--fundo);
+  transform: translateY(-2px);
+}
+
+
+/* === ANIMAÇÃO DE BRILHO === */
+@keyframes brilho {
+  0% { box-shadow: 0 0 0px var(--destaque); }
+  50% { box-shadow: 0 0 10px var(--destaque); }
+  100% { box-shadow: 0 0 0px var(--destaque); }
+}
+
+
+/* === ACESSIBILIDADE === */
+:focus {
+  outline: 2px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+
+/* === ANIMAÇÕES === */
+@keyframes brilho-card {
+  0%   { box-shadow: 0 0 0px var(--destaque); }
+  50%  { box-shadow: 0 0 20px var(--destaque); }
+  100% { box-shadow: 0 0 0px var(--destaque); }
+}
+
+
+/* === DIFERENTES TAMANHOS DE TELA === */
+@media (max-width: 768px) {
+  .produto-detalhes {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+/* === FOCO PARA ACESSIBILIDADE === */
+:focus {
+  outline: 2px solid var(--destaque);
+  outline-offset: 2px;
+}

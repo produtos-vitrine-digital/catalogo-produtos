@@ -1,0 +1,61 @@
+<!-- Define o tipo de documento como HTML5 -->
+<!DOCTYPE html>
+
+<!-- Início do documento HTML com idioma português do Brasil -->
+<html lang="pt-br">
+
+<head>
+  <!-- Define o conjunto de caracteres como UTF-8 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Título da aba do navegador -->
+  <title>Catálogo de Produtos</title>
+
+  <!-- Importa o arquivo de estilos CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Importa os ícones do Font Awesome -->
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Cabeçalho principal do site -->
+  <header>
+    <!-- Título principal visível na página -->
+    <h1>Catálogo de Produtos</h1>
+
+    <!-- Menu de navegação por categorias -->
+    <nav>
+      <!-- Link para exibir todas as categorias dos produtos -->
+      <a href="#" data-categoria="todos">Todos</a>
+      <a href="#" data-categoria="perfumes-masculinos">Perfumes Masculinos</a>
+      <a href="#" data-categoria="perfumes-femininos">Perfumes Femininos</a>
+      <a href="#" data-categoria="relogios-masculinos">Relógios Masculinos</a>
+      <a href="#" data-categoria="relogios-femininos">Relógios Femininos</a>
+    </nav>
+
+    <!-- Botão para alternar entre tema claro e escuro -->
+    <button id="toggle-theme">Alternar Tema</button>
+
+    <!-- Campo de busca para filtrar produtos por nome -->
+    <input type="text" id="busca" placeholder="Buscar produto por nome...">
+  </header>
+
+  <!-- Área principal da página -->
+  <main>
+    <!-- Seção onde os produtos serão exibidos dinamicamente -->
+    <section id="catalogo" class="catalogo-container"></section>
+  </main>
+
+  <!-- Rodapé com créditos -->
+  <footer>
+    <p>&copy; 2025 - Desenvolvido por Valdeson M. Lima</p>
+  </footer>
+
+  <!-- Importa o script JavaScript com a lógica da página -->
+  <script src="script.js"></script>
+</body>
+
+</html>
