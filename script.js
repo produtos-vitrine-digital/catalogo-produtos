@@ -33,7 +33,7 @@ function exibirProdutos(categoriaOuLista) {
     card.innerHTML = `
       <img src="${produto.imagem}" alt="${produto.nome}" onerror="this.src='img/padrao.jpg'">
       <h3>${produto.nome}</h3>
-      <p><strong>R$ ${produto.preco.toFixed(2)}</strong></p>
+      <p><strong>R$ ${Number(produto.preco).toFixed(2)}</strong></p>
       <a href="detalhes.html?id=${produto.id}" class="botao-contato">
         <i class="fas fa-search"></i> Ver detalhes
       </a>

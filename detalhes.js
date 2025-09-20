@@ -1,4 +1,4 @@
-//lÓGICA  DOS DETALHES DO PRODUTO //
+// LÓGICA DOS DETALHES DO PRODUTO //
 
 
 // === Captura o ID da URL === //
@@ -18,7 +18,7 @@ fetch('produtos.json')
     }
 
     // === Exibe os detalhes do produto === //
-    container.innerHTML += `
+    container.innerHTML = `
       <div class="detalhes-card">
         <img src="${produto.imagem}" alt="${produto.nome}" onerror="this.src='img/padrao.jpg'">
         <h2>${produto.nome}</h2>

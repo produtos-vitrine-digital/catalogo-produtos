@@ -245,6 +245,13 @@ body.dark-mode .card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 
@@ -268,15 +275,7 @@ body.dark-mode .card {
 
 
 /* === DETALHES DO PRODUTO === */
-.detalhes-card {
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-sizing: border-box;
-  text-align: center;
-}
+/* (Remove this duplicate block entirely) */
 
 .detalhes-card img {
   max-width: 100%;
