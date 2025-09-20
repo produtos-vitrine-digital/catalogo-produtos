@@ -2,28 +2,32 @@
   {
     "id": 1,
     "nome": "Perfume Elegante",
-    "preco": "180.00",
+    "preco": 180.00,
+    "detalhes": "Um perfume sofisticado para ocasiões especiais.",
     "categoria": "perfumes-masculinos",
     "imagem": "img/perfume1.jpg"
   },
   {
     "id": 2,
     "nome": "Relógio Clássico",
-    "preco": "250.00",
+    "preco": 250.00,
+    "detalhes": "Relógio feminino com design elegante e pulseira de couro.",
     "categoria": "relogios-femininos",
     "imagem": "img/relogio1.jpg"
   },
   {
     "id": 3,
     "nome": "Perfume Fresco",
-    "preco": "200.00",
+    "preco": 200.00,
+    "detalhes": "Um perfume leve e refrescante para o dia a dia.",
     "categoria": "perfumes-femininos",
     "imagem": "img/perfume2.jpg"
   },
   {
     "id": 4,
     "nome": "Relógio Esportivo",
-    "preco": "230.00",
+    "preco": 230.00,
+    "detalhes": "Relógio masculino com design robusto e pulseira de silicone.",
     "categoria": "relogios-masculinos",
     "imagem": "img/relogio2.jpg"
   }

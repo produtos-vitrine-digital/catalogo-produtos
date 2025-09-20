@@ -1,40 +1,44 @@
-<!-- Define o tipo de documento como HTML5 -->
-<!DOCTYPE html>
+<!-- PÁGINA PRINCIPAL DO SITE -->
 
-<!-- Início do documento HTML com idioma português do Brasil -->
+<!-- Define o tipo de documento com o idioma -->
+<!DOCTYPE html>
 <html lang="pt-br">
 
 
+
+<!-- Função do site -->
 <head>
-  <!-- Tema escuro automaticamente -->
-  <script>
-    if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.add('dark-mode');
-    }
-  </script>
+
   <!-- Define o conjunto de caracteres como UTF-8 -->
   <meta charset="UTF-8">
+
+  <!-- Responsividade em dispositivos móveis -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+  
   <!-- Título da aba do navegador -->
   <title>Catálogo de Produtos</title>
-
+  
   <!-- Importa o arquivo de estilos CSS -->
   <link rel="stylesheet" href="style.css">
-
+  
   <!-- Importa os ícones do Font Awesome -->
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+
+
+<!-- Corpo da página -->
 <body>
+  
   <!-- Cabeçalho principal do site -->
   <header>
+    
     <!-- Título principal visível na página -->
     <h1>Catálogo de Produtos</h1>
 
     <!-- Menu de navegação por categorias -->
     <nav>
+
       <!-- Link para exibir todas as categorias dos produtos -->
       <a href="#" data-categoria="todos">Todos</a>
       <a href="#" data-categoria="perfumes-masculinos">Perfumes Masculinos</a>
@@ -44,7 +48,7 @@
     </nav>
 
     <!-- Botão para alternar entre tema claro e escuro -->
-    <button id="toggle-theme">Alternar Tema</button>
+    <button id="toggle-theme">Alterar Tema</button>
 
     <!-- Campo de busca para filtrar produtos por nome -->
     <input type="text" id="busca" placeholder="Buscar produto por nome...">
@@ -52,6 +56,7 @@
 
   <!-- Área principal da página -->
   <main>
+
     <!-- Seção onde os produtos serão exibidos dinamicamente -->
     <section id="catalogo" class="catalogo-container"></section>
   </main>
@@ -63,20 +68,7 @@
 
   <!-- Importa o script JavaScript com a lógica da página -->
   <script src="script.js"></script>
+  <script src="tema.js"></script>
 </body>
-
-
-<!-- Script para alternar o tema claro/escuro e salvar a preferência no localStorage -->
-<script>
-  const toggleThemeButton = document.getElementById('toggle-theme');
-  const bodyElement = document.documentElement;
-
-  toggleThemeButton.addEventListener('click', () => {
-    bodyElement.classList.toggle('dark-mode');
-    const temaAtual = bodyElement.classList.contains('dark-mode') ? 'dark' : 'light';
-    localStorage.setItem('theme', temaAtual);
-  });
-</script>
-
 
 </html>

@@ -1,37 +1,55 @@
+<!-- PÁGINA DE DETALHES DE UM PRODUTO -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Produto</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
 
-  <!-- Aplica o tema salvo ANTES de renderizar o body -->
+
+
+<!-- Função do site -->
+<head>
+
+  <!-- Define o conjunto de caracteres -->
+  <meta charset="UTF-8">
+
+  <!-- Responsividade em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Título da aba do navegador -->
+  <title>Detalhes do Produto</title>
+  
+  <!-- Tema escuro automaticamente -->
   <script>
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark-mode');
     }
   </script>
+
+  <!-- Importa o arquivo de estilos CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Importa os ícones do Font Awesome -->
+  <script src="https://kit.fontawesome.com/abc123def456.js" crossorigin="anonymous"></script>
+
 </head>
 
+
+
+<!-- Corpo da página -->
 <body>
-  <!-- Cabeçalho -->
+
+  <!-- Cabeçalho principal do site -->
   <header>
     <h1>Detalhes do Produto</h1>
     <button id="toggle-theme">Alternar Tema</button>
   </header>
-
-  <!-- Área principal onde os dados do produto serão exibidos -->
+  
+  <!-- corpo principal do site -->
   <main>
-    <section id="detalhes-produto" class="catalogo-container"></section>
-      <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="botao-contato">
-          <i class="fas fa-arrow-left"></i> Voltar ao Catálogo
-        </a>
-      </div>
-    </section>
-  </main>
+  <section id="detalhes-produto" class="catalogo-container">
+    <div style="text-align: center; margin-top: 30px;">
+    </div>
+  </section>
+</main>
 
   <!-- Rodapé -->
   <footer>
@@ -43,14 +61,5 @@
 <!-- Scripts -->
 <script src="detalhes.js"></script>
 <script src="tema.js"></script>
-<script>
-  const toggleThemeButton = document.getElementById('toggle-theme');
-  const bodyElement = document.documentElement;
 
-  toggleThemeButton.addEventListener('click', () => {
-    bodyElement.classList.toggle('dark-mode');
-    const temaAtual = bodyElement.classList.contains('dark-mode') ? 'dark' : 'light';
-    localStorage.setItem('theme', temaAtual);
-  });
-</script>
 </html>

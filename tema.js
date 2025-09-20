@@ -1,16 +1,33 @@
-// Aplica o tema salvo ao carregar
-const rootElement = document.documentElement;
-if (localStorage.getItem('theme') === 'dark') {
-  rootElement.classList.add('dark-mode');
+/* === TEMA DO SITE - Alternância Claro/Escuro === */
+  
+
+/* === FUNÇÃO: Aplica o tema salvo no navegador === */
+/* Verifica o localStorage e ativa o modo escuro se necessário */
+function aplicarTema() {
+  const temaSalvo = localStorage.getItem('theme'); // Recupera a preferência salva
+
+  if (temaSalvo === 'dark') {
+    document.body.classList.add('dark-mode'); // Aplica modo escuro
+  } else {
+    document.body.classList.remove('dark-mode'); // Aplica modo claro
+  }
 }
 
-// Alterna o tema ao clicar
+
+
+/* === EVENTO: Executa após o carregamento completo da página === */
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleThemeButton = document.getElementById('toggle-theme');
+  const toggleThemeButton = document.getElementById('toggle-theme'); // Botão de alternância de tema
+
+  aplicarTema(); // Aplica o tema salvo ao carregar a página
+
+  // === EVENTO: Clique no botão para alternar o tema ===
   if (toggleThemeButton) {
     toggleThemeButton.addEventListener('click', () => {
-      rootElement.classList.toggle('dark-mode');
-      const temaAtual = rootElement.classList.contains('dark-mode') ? 'dark' : 'light';
+      document.body.classList.toggle('dark-mode'); // Alterna entre claro/escuro
+
+      // Atualiza a preferência no localStorage
+      const temaAtual = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
       localStorage.setItem('theme', temaAtual);
     });
   }

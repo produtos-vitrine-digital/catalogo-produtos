@@ -1,4 +1,8 @@
-/* === PALETA DE CORES === */
+/* ESTILO VISUAL DO SITE */
+
+
+/* === PALETA DE CORES E VARIÁVEIS GLOBAIS === */
+/* Define cores principais e transições suaves para o tema */
 :root {
   --fundo: #0f0f0f;
   --texto: #f5f5f5;
@@ -10,20 +14,49 @@
 }
 
 
-/* === FONTES === */
+
+/* === FONTES PERSONALIZADAS === */
+/* Importa fontes do Google Fonts para títulos e textos */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap');
 
 
+
+/* === ESTILO DO BOTÃO DE TEMA === */
+/* Botão que alterna entre modo claro e escuro */
+#toggle-theme {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--destaque);
+  background: transparent;
+  color: var(--destaque);
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+#toggle-theme:hover {
+  background: var(--destaque);
+  color: var(--fundo);
+  transform: translateY(-2px);
+}
+
+
+
 /* === MODO CLARO === */
+/* Estilo padrão do site */
 body {
   background-color: #ffffff;
   color: #222222;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
 
 
+
 /* === MODO ESCURO === */
+/* Estilo ativado quando a classe .dark-mode está presente */
 body.dark-mode {
   background: var(--fundo) url('img/fundo-luxo.jpg') center/cover fixed no-repeat;
   color: var(--texto);
@@ -31,7 +64,9 @@ body.dark-mode {
 }
 
 
+
 /* === TÍTULOS E TEXTOS === */
+/* Estilo para títulos e parágrafos */
 h1, h2, h3, p {
   color: inherit;
 }
@@ -48,7 +83,8 @@ h1 {
 }
 
 
-/* === CABEÇALHO === */
+
+/* === CABEÇALHO DO SITE === */
 header {
   text-align: center;
   padding: 2rem 1rem;
@@ -60,7 +96,8 @@ header {
 }
 
 
-/* === RODAPÉ === */
+
+/* === RODAPÉ DO SITE === */
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -70,7 +107,8 @@ footer {
 }
 
 
-/* === NAVEGAÇÃO === */
+
+/* === MENU DE NAVEGAÇÃO === */
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -95,25 +133,6 @@ nav a.ativo {
   color: var(--fundo);
 }
 
-
-/* === BOTÃO DE TEMA === */
-#toggle-theme {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 2px solid var(--destaque);
-  background: transparent;
-  color: var(--destaque);
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-
-#toggle-theme:hover {
-  background: var(--destaque);
-  color: var(--fundo);
-  transform: translateY(-2px);
-}
 
 
 /* === CAMPO DE BUSCA === */
@@ -140,7 +159,8 @@ nav a.ativo {
 }
 
 
-/* === CATÁLOGO === */
+
+/* === ÁREA DO CATÁLOGO DE PRODUTOS === */
 .catalogo-container {
   display: flex;
   flex-wrap: wrap;
@@ -148,6 +168,7 @@ nav a.ativo {
   gap: 2rem;
   padding: 2rem;
 }
+
 
 
 /* === CARD DE PRODUTO === */
@@ -179,6 +200,7 @@ nav a.ativo {
 }
 
 
+
 /* === CARD NO MODO CLARO === */
 body:not(.dark-mode) .card {
   background-color: #f9f9f9;
@@ -188,6 +210,7 @@ body:not(.dark-mode) .card {
 }
 
 
+
 /* === CARD NO MODO ESCURO === */
 body.dark-mode .card {
   background: var(--card);
@@ -195,6 +218,7 @@ body.dark-mode .card {
   border: 1px solid var(--borda-card);
   backdrop-filter: blur(10px);
 }
+
 
 
 /* === BOTÃO DE CONTATO === */
@@ -216,7 +240,16 @@ body.dark-mode .card {
 }
 
 
-/* === ANIMAÇÃO DE BRILHO === */
+/* === BOTÕES DE DETALHES DO PRODUTO === */
+.detalhes-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/* === ANIMAÇÃO DE BRILHO NO CARD === */
 @keyframes brilho {
   0% { box-shadow: 0 0 0px var(--destaque); }
   50% { box-shadow: 0 0 10px var(--destaque); }
@@ -224,39 +257,14 @@ body.dark-mode .card {
 }
 
 
+
 /* === ACESSIBILIDADE === */
+/* Estilo para elementos focados via teclado */
 :focus {
   outline: 2px solid var(--destaque);
   outline-offset: 2px;
 }
 
-
-/* === ANIMAÇÕES === */
-@keyframes brilho-card {
-  0%   { box-shadow: 0 0 0px var(--destaque); }
-  50%  { box-shadow: 0 0 20px var(--destaque); }
-  100% { box-shadow: 0 0 0px var(--destaque); }
-}
-
-
-/* === DIFERENTES TAMANHOS DE TELA === */
-@media (max-width: 768px) {
-  .produto-detalhes {
-    flex-direction: column;
-    padding: 10px;
-  }
-}
-
-body {
-  overflow-x: hidden;
-}
-
-
-/* === FOCO PARA ACESSIBILIDADE === */
-:focus {
-  outline: 2px solid var(--destaque);
-  outline-offset: 2px;
-}
 
 
 /* === DETALHES DO PRODUTO === */
@@ -277,8 +285,41 @@ body {
   margin-bottom: 1rem;
 }
 
+.detalhes-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.detalhes-container img {
+  flex: 1;
+  max-width: 400px;
+}
+
+.detalhes-info {
+  flex: 1;
+  text-align: left;
+}
+
+
+
+/* === RESPONSIVIDADE PARA TELAS MENORES === */
 @media (max-width: 768px) {
+  .produto-detalhes {
+    flex-direction: column;
+    padding: 10px;
+  }
+
   .detalhes-card {
     padding: 1rem;
+  }
+
+  nav a,
+  #toggle-theme,
+  .botao-contato {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.1rem;
   }
 }

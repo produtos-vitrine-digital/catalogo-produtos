@@ -1,48 +1,39 @@
-// === Alternância de tema claro/escuro ===
-const toggleThemeButton = document.getElementById('toggle-theme');
-const bodyElement = document.body;
+/* LÓGICA DO CATÁLOGO DE PRODUTOS */
 
-// Aplica o tema salvo ao carregar a página
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-mode');
-}
 
-// Alterna o tema ao clicar no botão
-toggleThemeButton.addEventListener('click', () => {
-  bodyElement.classList.toggle('dark-mode');
-  const temaAtual = bodyElement.classList.contains('dark-mode') ? 'dark' : 'light';
-  localStorage.setItem('theme', temaAtual);
-});
-
-// === Lista de produtos carregada do JSON ===
+/* === LISTA DE PRODUTOS === */
+/* Armazena todos os produtos carregados do JSON */
 let todosProdutos = [];
 
-// === Função para exibir produtos na tela ===
+
+
+/* === FUNÇÃO: Exibe os produtos na tela === */
+/* Recebe uma categoria ou uma lista filtrada e renderiza os cards */
 function exibirProdutos(categoriaOuLista) {
   const container = document.getElementById('catalogo');
   container.innerHTML = ''; // Limpa o conteúdo anterior
 
-  // Decide se vai filtrar por categoria ou usar uma lista personalizada
+  // Filtra os produtos com base na categoria ou lista recebida
   const produtosFiltrados = Array.isArray(categoriaOuLista)
     ? categoriaOuLista
     : categoriaOuLista === 'todos'
     ? todosProdutos
     : todosProdutos.filter(p => p.categoria === categoriaOuLista);
 
-  // Se não houver produtos, mostra mensagem
+  // Se não houver produtos, exibe mensagem
   if (produtosFiltrados.length === 0) {
     container.innerHTML = `<p style="text-align:center;">Nenhum produto encontrado 😕</p>`;
     return;
   }
 
-  // Cria os cards de produto
+  // Cria e insere os cards de produto
   produtosFiltrados.forEach(produto => {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <img src="${produto.imagem}" alt="${produto.nome}">
+      <img src="${produto.imagem}" alt="${produto.nome}" onerror="this.src='img/padrao.jpg'">
       <h3>${produto.nome}</h3>
-      <p><strong>R$ ${produto.preco}</strong></p>
+      <p><strong>R$ ${produto.preco.toFixed(2)}</strong></p>
       <a href="detalhes.html?id=${produto.id}" class="botao-contato">
         <i class="fas fa-search"></i> Ver detalhes
       </a>
@@ -51,18 +42,28 @@ function exibirProdutos(categoriaOuLista) {
   });
 }
 
-// === Carrega os produtos do arquivo JSON ===
+
+
+/* === CARREGAMENTO INICIAL DOS PRODUTOS === */
+/* Busca os dados do arquivo JSON e exibe todos os produtos */
 fetch('produtos.json')
   .then(res => res.json())
   .then(produtos => {
     todosProdutos = produtos;
     exibirProdutos('todos'); // Exibe todos ao carregar
+  })
+  .catch(error => {
+    console.error("Erro ao carregar o catálogo de produtos:", error);
+    document.getElementById('catalogo').innerHTML = "<p>Não foi possível carregar os produtos. Tente novamente mais tarde.</p>";
   });
 
-  // === Filtro por categoria ao clicar no menu ===
+
+
+/* === FILTRO POR CATEGORIA === */
+/* Adiciona evento de clique nos links do menu para filtrar por categoria */
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Evita o comportamento padrão do link
     const categoria = link.getAttribute('data-categoria');
     exibirProdutos(categoria);
 
@@ -72,20 +73,10 @@ document.querySelectorAll('nav a').forEach(link => {
   });
 });
 
-// === Filtro por categoria ao clicar no menu ===
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const categoria = link.getAttribute('data-categoria');
-    exibirProdutos(categoria);
-
-    document.querySelectorAll('nav a').forEach(l => l.classList.remove('ativo'));
-    link.classList.add('ativo');
-  });
-});
 
 
-// === Filtro por nome ao digitar na busca ===
+/* === FILTRO POR NOME === */
+/* Filtra os produtos conforme o usuário digita no campo de busca */
 document.getElementById('busca').addEventListener('input', (e) => {
   const termo = e.target.value.toLowerCase();
   const filtrados = todosProdutos.filter(p => p.nome.toLowerCase().includes(termo));
