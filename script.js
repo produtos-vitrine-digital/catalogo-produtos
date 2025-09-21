@@ -17,8 +17,8 @@ function exibirProdutos(categoriaOuLista) {
   const produtosFiltrados = Array.isArray(categoriaOuLista)
     ? categoriaOuLista
     : categoriaOuLista === 'todos'
-    ? todosProdutos
-    : todosProdutos.filter(p => p.categoria === categoriaOuLista);
+      ? todosProdutos
+      : todosProdutos.filter(p => p.categoria === categoriaOuLista);
 
   // Se não houver produtos, exibe mensagem
   if (produtosFiltrados.length === 0) {

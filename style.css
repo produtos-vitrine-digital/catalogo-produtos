@@ -65,6 +65,33 @@ body.dark-mode {
 
 
 
+/* === CARD NO MODO CLARO === */
+body:not(.dark-mode) .card {
+  background-color: #f9f9f9;
+  color: #222222;
+  border: 1px solid rgba(0,0,0,0.1);
+  backdrop-filter: none;
+}
+
+
+
+/* === CARD NO MODO ESCURO === */
+body.dark-mode .card {
+  background: var(--card);
+  color: var(--texto);
+  border: 1px solid var(--borda-card);
+  backdrop-filter: blur(10px);
+}
+
+
+
+/* === FONTES GLOBAIS === */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
 /* === TÍTULOS E TEXTOS === */
 /* Estilo para títulos e parágrafos */
 h1, h2, h3, p {
@@ -160,6 +187,7 @@ nav a.ativo {
 
 
 
+
 /* === ÁREA DO CATÁLOGO DE PRODUTOS === */
 .catalogo-container {
   display: flex;
@@ -201,22 +229,17 @@ nav a.ativo {
 
 
 
-/* === CARD NO MODO CLARO === */
-body:not(.dark-mode) .card {
-  background-color: #f9f9f9;
-  color: #222222;
-  border: 1px solid rgba(0,0,0,0.1);
-  backdrop-filter: none;
+/* === ESTILO INTERNO DO CARD === */
+.card {
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-
-
-/* === CARD NO MODO ESCURO === */
-body.dark-mode .card {
-  background: var(--card);
-  color: var(--texto);
-  border: 1px solid var(--borda-card);
-  backdrop-filter: blur(10px);
+.container {
+  display: grid;
+  gap: 20px;
 }
 
 
