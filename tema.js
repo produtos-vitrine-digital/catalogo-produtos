@@ -7,9 +7,9 @@ function aplicarTema() {
   const temaSalvo = localStorage.getItem('theme'); // Recupera a preferência salva
 
   if (temaSalvo === 'dark') {
-    document.documentElement.classList.add('dark-mode'); // Aplica modo escuro
+    document.document.body.classList.add('dark-mode'); // Aplica modo escuro
   } else {
-    document.documentElement.classList.remove('dark-mode'); // Aplica modo claro
+    document.document.body.classList.remove('dark-mode'); // Aplica modo claro
   }
 }
 
